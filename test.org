@@ -1,0 +1,12 @@
+#+BEGIN_SRC python
+return 2+2
+#+END_SRC
+
+#+RESULTS:
+: 4
+
+
+
+# Local Variables:
+# org-confirm-babel-evaluate: nil
+# End:
