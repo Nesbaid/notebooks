@@ -1,0 +1,67 @@
+#+BEGIN_SRC python :session 
+import networkx as nx
+import matplotlib.pyplot as plt
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC python :session
+g=nx.octahedral_graph()
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC python :session :file oct.png :export results :results raw
+nx.draw(g)
+#+END_SRC
+
+#+RESULTS:
+[[file:oct.png]]
+
+#+BEGIN_SRC python :session
+it=nx.find_cliques(g)
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC python :session
+next(it)
+#+END_SRC
+
+#+RESULTS:
+| 0 | 4 | 3 |
+
+#+BEGIN_SRC python :session
+def clique_graph(g, cmax=1000):
+    it = nx.find_cliques(g)
+    i = 0
+    cliques = []
+    K = nx.Graph()
+    while True:
+        cliques.append(next(it))
+        i = i+1
+        if i > cmax:
+            return None
+    # Add a numbered node for each clique.
+    K.add_nodes_from(i for i, c in cliques)
+    # Join cliques by an edge if they share a node.
+    clique_pairs = combinations(cliques, 2)
+    B.add_edges_from((i, j) for (i, c1), (j, c2) in clique_pairs if c1 & c2)
+    return B
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC python :session :results raw
+kg = clique_graph(g)
+kg.order()
+#+END_SRC
+
+#+RESULTS:
+
+
+
+
+# Local Variables:
+# org-confirm-babel-evaluate: nil
+# End:
