@@ -12,7 +12,7 @@ g=nx.octahedral_graph()
 #+RESULTS:
 
 #+BEGIN_SRC python :session :file oct.png :export results :results raw
-nx.draw(g)
+nx.draw_networkx(g)
 #+END_SRC
 
 #+RESULTS:
