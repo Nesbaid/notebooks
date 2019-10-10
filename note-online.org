@@ -1,0 +1,12 @@
+#+title: Clan comportamiento de gráficas pequeñas
+
+#+property: header-args:ipython :cache yes :session lista :results raw drawer
+
+#+begin_src ipython
+!pip install git+https://github.com/rvf0068/pycliques
+!pip install matplotlib
+#+end_src
+
+#+begin_src ipython
+!small_graphs -vv 6
+#+end_src
