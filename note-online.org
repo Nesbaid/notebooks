@@ -2,11 +2,61 @@
 
 #+property: header-args:ipython :cache yes :session lista :results raw drawer
 
+Con estos comandos instalamos la biblioteca =pycliques= desde
+=github=, y además instalamos la biblioteca =matplotlib=.
+
 #+begin_src ipython
 !pip install git+https://github.com/rvf0068/pycliques
 !pip install matplotlib
 #+end_src
 
+Como parte de =pycliques= se incluye un comando para estudiar el
+comportamiento de todas las gráficas de cierto orden, como se mostró
+en la plática.
+
 #+begin_src ipython
 !small_graphs -vv 6
 #+end_src
+
+Cargamos algunos comandos para inicializar. Entre ellos, tenemos
+comandos de /Python/ para extraer una gráfica en particular de una
+lista de gráficas.
+
+#+begin_src ipython
+import networkx as nx
+from pycliques.lists import enlist_graphs
+%matplotlib inline
+#+end_src
+
+#+RESULTS[cbdb3bc6de45294ffabe35494297eb62467d482d]:
+:results:
+# Out[7]:
+:end:
+
+#+begin_src ipython
+graficas8 = enlist_graphs(8)
+#+end_src
+
+#+RESULTS[1ecfcc8caeedb752fe13ae70fd63d288bb8e074c]:
+:results:
+# Out[2]:
+:end:
+
+#+begin_src ipython
+nx.draw(graficas8[10829])
+#+end_src
+
+#+RESULTS[6848fecb38dfd9ddf0ef26b75d4803124d95f474]:
+:results:
+# Out[8]:
+[[file:./obipy-resources/HC1pon.png]]
+:end:
+
+#+begin_src ipython
+!small_graphs -vv 9
+#+end_src
+
+
+# Local Variables:
+# org-confirm-babel-evaluate: nil
+# End:
